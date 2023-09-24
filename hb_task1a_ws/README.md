@@ -1,4 +1,4 @@
-##NODE
+##eYRC Task 1 a
 
 Start the turtlesim 
     ros2 run turtlesim turtlesim_node
