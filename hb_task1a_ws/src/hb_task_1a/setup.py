@@ -14,7 +14,7 @@ setup(
     zip_safe=True,
     maintainer="das",
     maintainer_email="das@todo.todo",
-    description="TODO: Package description",
+    description="Two Circles",
     license="TODO: License declaration",
     tests_require=["pytest"],
     entry_points={
