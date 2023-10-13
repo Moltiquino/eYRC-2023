@@ -1,10 +1,10 @@
 """
-# Team ID:          < Team-ID >
-# Theme:            < Theme Name >
-# Author List:      < Names of team members worked on this file separated by Comma >
-# Filename:         < Filename >
-# Functions:        < Comma separated list of functions in this file >
-# Global variables: < List of global variables defined in this file, None if no global variables >
+# Team ID         : #eYRC#2865                                                     < Team-ID >
+# Theme           : Holyglyph Bot                                                  < Theme Name >
+# Author List     : Shreyas Das, Meghashyama N Aithal                              < Names of team members worked on this file separated by Comma >
+# Filename        : task_1a_2865.py                                                < Filename >
+# Functions       : __init__ , euclidean_distance, pose_callback, move_ ,req_spawn < Comma separated list of functions in this file >
+# Global variables: None                                                           < List of global variables defined in this file, None if no global variables >
 """
 
 
@@ -17,57 +17,26 @@ from math import sqrt
 
 
 class DrawCircleBig(Node):
-    """
-    Purpose:
-    ---
-    < Short-text describing the purpose of this function >
-
-    Input Arguments:
-    ---
-    `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-        < one-line description of 1st input argument >
-
-    `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-        < one-line description of 2nd input argument >
-
-    Returns:
-    ---
-    `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-        < one-line description of 1st return argument >
-
-    `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-        < one-line description of 2nd return argument >
-
-    Example call:
-    ---
-    < Example of how to call this function >
-    """
+    
 
     def __init__(self):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
+        Constructor for the node creates publisher for turtle 2 and a subscriber for turtle 2's position
 
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
+        None
+            
 
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
+        None
 
         Example call:
         ---
-        < Example of how to call this function >
+        __init__()
         """
 
         super().__init__("draw_circle_big")
@@ -87,27 +56,22 @@ class DrawCircleBig(Node):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
-
+        Returns the distance between the published pose vale from pose topic of the turtle and the goal
         Input Arguments:
+
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
-
+        < self >:  [object]
+          The turtle constructor
+        < goal_pose >:  [ double]
+            The original position of the turtle 
+        
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
+        Distance between the position of turtle and original position
 
         Example call:
         ---
-        < Example of how to call this function >
+        euclidean_distance(self.init_pose)
         """
 
         return sqrt(
@@ -118,27 +82,16 @@ class DrawCircleBig(Node):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
-
+        Subscribes the position values form position topic of the turtle
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
-
+        None
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
-
+        None
         Example call:
         ---
-        < Example of how to call this function >
+        self.pose_callbck
         """
         self.pose = pose_
         if not self.init_pose:
@@ -148,29 +101,19 @@ class DrawCircleBig(Node):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
+        Publishes linear x and angular z values to the velocity topic for the execution of a bigger circle  
 
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
-
+        None
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
-
+        None
         Example call:
         ---
-        < Example of how to call this function >
+        self.move_
         """
-        omega = 1.0
+        omega = 3.0
         if self.init_pose == None:
             self.get_logger().warn("Turtle sim not active")
             return
@@ -188,57 +131,25 @@ class DrawCircleBig(Node):
 
 
 class DrawCircle(Node):
-    """
-    Purpose:
-    ---
-    < Short-text describing the purpose of this function >
-
-    Input Arguments:
-    ---
-    `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-        < one-line description of 1st input argument >
-
-    `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-        < one-line description of 2nd input argument >
-
-    Returns:
-    ---
-    `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-        < one-line description of 1st return argument >
-
-    `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-        < one-line description of 2nd return argument >
-
-    Example call:
-    ---
-    < Example of how to call this function >
-    """
-
+    
     def __init__(self):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
+        Constructor for the node creates publisher for turtle 2 and a subscriber for turtle 2's position
 
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
+        None
+            
 
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
+        None
 
         Example call:
         ---
-        < Example of how to call this function >
+        __init__()
         """
         super().__init__("draw_cricle")
         self.pub_ = self.create_publisher(Twist, "/turtle1/cmd_vel", 10)
@@ -257,27 +168,22 @@ class DrawCircle(Node):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
-
+        Returns the distance between the published pose vale from pose topic of the turtle and the goal
         Input Arguments:
+
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
-
+        < self >:  [object]
+          The turtle constructor
+        < goal_pose >:  [ double]
+            The original position of the turtle 
+        
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
+        Distance between the position of turtle and original position
 
         Example call:
         ---
-        < Example of how to call this function >
+        euclidean_distance(self.init_pose)
         """
         return sqrt(
             pow((goal_pose.x - self.pose.x), 2) + pow((goal_pose.y - self.pose.y), 2)
@@ -287,27 +193,18 @@ class DrawCircle(Node):
         """
         Purpose:
         ---
-        < Short-text describing the purpose of this function >
-
+        Checks if the small circle execution is complete ,once done destroys the node  
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
+        <self> The turtle object
 
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
+        None
 
         Example call:
         ---
-        < Example of how to call this function >
+        req_spawn()
         """
         clt = self.create_client(Spawn, "/spawn")
         while not clt.wait_for_service(1.0):
@@ -328,29 +225,19 @@ class DrawCircle(Node):
 
     def move_(self):
         """
-        Purpose:
+       Purpose:
         ---
-        < Short-text describing the purpose of this function >
+        Publishes linear x and angular z values to the velocity topic for the execution of a small circle  
 
         Input Arguments:
         ---
-        `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-            < one-line description of 1st input argument >
-
-        `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-            < one-line description of 2nd input argument >
-
+        None
         Returns:
         ---
-        `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-            < one-line description of 1st return argument >
-
-        `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-            < one-line description of 2nd return argument >
-
+        None
         Example call:
         ---
-        < Example of how to call this function >
+        self.move_
         """
         omega = 1.0
         if self.init_pose == None:
@@ -379,27 +266,19 @@ def main(args=None):
     """
     Purpose:
     ---
-    < Short-text describing the purpose of this function >
+    Main program that the Node publishes to the turtle
 
     Input Arguments:
     ---
-    `< name of 1st input argument >` :  [ < type of 1st input argument > ]
-        < one-line description of 1st input argument >
-
-    `< name of 2nd input argument >` :  [ < type of 2nd input argument > ]
-        < one-line description of 2nd input argument >
+    None
 
     Returns:
     ---
-    `< name of 1st return argument >` :  [ < type of 1st return argument > ]
-        < one-line description of 1st return argument >
-
-    `< name of 2nd return argument >` :  [ < type of 2nd return argument > ]
-        < one-line description of 2nd return argument >
+    None
 
     Example call:
     ---
-    < Example of how to call this function >
+    main()
     """
     rclpy.init(args=args)
     min_pub = DrawCircle()
